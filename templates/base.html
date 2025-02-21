@@ -148,15 +148,18 @@
      </div>
   </aside>
   
-  <div class="p-4 sm:ml-64 mt-14 h-full">
+  <div class="p-4 sm:ml-64 mt-14 h-full  dark:bg-gray-800">
     {% block 'content' %}
         Sistema de Gerenciamento de Patrimonio
     {% endblock %}
   </div>
   
-    <script src="{% static "js/flowbite.min.js" %}"></script>
-    <script src="{% static "js/main.js" %}"></script>
-    {% block 'scripts' %}
-    {% endblock  %}
+    {% compress js %}
+      <script src="{% static "vendor/js/flowbite.min.js" %}"></script>
+      <script src="{% static "js/main.js" %}"></script>
+      {% block 'scripts' %}
+      {% endblock  %}
+    {% endcompress %}
+
 </body>
 </html>
