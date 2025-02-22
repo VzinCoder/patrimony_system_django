@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from subscription.utils import create_trial
 from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
-from django.contrib.auth import login as auth_login
+from django.contrib.auth import login as auth_login,logout as auth_logout
 # Create your views here.
 
 
@@ -24,8 +24,12 @@ def login(request):
        if not form.is_valid():
           return render(request,"login.html",{'form':form})
        user = form.get_user()
-       print(user)
        auth_login(request,user)
        return redirect('categories')
 
    return render(request,"login.html")
+
+
+def logout(request):
+   auth_logout(request)
+   return redirect('login')

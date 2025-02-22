@@ -51,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'subscription.middlewares.SubscriptionMiddleware'
 ]
 
 ROOT_URLCONF = 'patrimony_system_django.urls'
