@@ -1,0 +1,191 @@
+{% extends "home_base.html" %}
+
+{% block 'content' %}
+<!-- Hero Section -->
+<section class="bg-white dark:bg-gray-900">
+    <div class="py-8 px-4  mx-auto max-w-screen-xl text-center lg:py-40 lg:px-12">
+        <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+            Gerencie Seu Patrimônio com Segurança e Eficiência
+        </h1>
+        <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">
+            Cadastre bens, departamentos e movimentações de forma simples e segura. Experimente gratuitamente por 7 dias e descubra como podemos ajudar você!
+        </p>
+        <div class="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
+            <a href="{% url 'register' %}" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
+                Comece Agora
+                <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+            </a>
+            <a href="#planos" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-gray-900 rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
+                Ver Planos
+            </a>  
+        </div>
+    </div>
+</section>
+
+
+<section class="bg-white dark:bg-gray-800">
+    <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
+        <div class="max-w-screen-md mb-8 lg:mb-16">
+            <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
+                Feito para Gerenciar Seu Patrimônio com Eficiência
+            </h2>
+            <p class="text-gray-500 sm:text-xl dark:text-gray-400">
+                Simplifique o controle de bens, departamentos, movimentações, fornecedores e categorias com ferramentas poderosas e intuitivas.
+            </p>
+        </div>
+        <div class="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
+            <!-- Cadastro de Bens -->
+            <div>
+                <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">
+                    <svg class="w-5 h-5 text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                    </svg>
+                </div>
+                <h3 class="mb-2 text-xl font-bold dark:text-white">Cadastro de Bens</h3>
+                <p class="text-gray-500 dark:text-gray-400">
+                    Registre todos os seus bens com detalhes como fotos, documentos e histórico completo.
+                </p>
+            </div>
+
+            <!-- Controle de Departamentos -->
+            <div>
+                <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">
+                    <svg class="w-5 h-5 text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/>
+                    </svg>
+                </div>
+                <h3 class="mb-2 text-xl font-bold dark:text-white">Controle de Departamentos</h3>
+                <p class="text-gray-500 dark:text-gray-400">
+                    Organize seus bens por departamentos e facilite a gestão interna.
+                </p>
+            </div>
+
+            <!-- Movimentações -->
+            <div>
+                <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">
+                    <svg class="w-5 h-5 text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 0l-2 2a1 1 0 101.414 1.414L8 10.414l1.293 1.293a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                </div>
+                <h3 class="mb-2 text-xl font-bold dark:text-white">Movimentações</h3>
+                <p class="text-gray-500 dark:text-gray-400">
+                    Acompanhe todas as movimentações de bens entre departamentos ou locais.
+                </p>
+            </div>
+
+            <!-- Gestão de Fornecedores -->
+            <div>
+                <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">
+                    <svg class="w-5 h-5 text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"/>
+                    </svg>
+                </div>
+                <h3 class="mb-2 text-xl font-bold dark:text-white">Gestão de Fornecedores</h3>
+                <p class="text-gray-500 dark:text-gray-400">
+                    Cadastre e gerencie fornecedores de bens e serviços de forma eficiente.
+                </p>
+            </div>
+
+            <!-- Categorias de Bens -->
+            <div>
+                <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">
+                    <svg class="w-5 h-5 text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm0 6a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zm10-1a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1V9z" clip-rule="evenodd"/>
+                    </svg>
+                </div>
+                <h3 class="mb-2 text-xl font-bold dark:text-white">Categorias de Bens</h3>
+                <p class="text-gray-500 dark:text-gray-400">
+                    Classifique seus bens em categorias para facilitar a organização e busca.
+                </p>
+            </div>
+
+            <!-- Histórico Completo -->
+            <div>
+                <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">
+                    <svg class="w-5 h-5 text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/>
+                        <path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"/>
+                    </svg>
+                </div>
+                <h3 class="mb-2 text-xl font-bold dark:text-white">Histórico Completo</h3>
+                <p class="text-gray-500 dark:text-gray-400">
+                    Acesse o histórico completo de cada bem, desde o cadastro até as últimas movimentações.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Pricing Cards -->
+<section id="planos" class="bg-white dark:bg-gray-900">
+    <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+        <div class="mx-auto max-w-screen-md text-center mb-8 lg:mb-12">
+            <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Escolha o Melhor Plano para Você</h2>
+            <p class="mb-5 font-light text-gray-500 sm:text-xl dark:text-gray-400">
+                Oferecemos planos flexíveis para atender às suas necessidades de gerenciamento de patrimônio.
+            </p>
+        </div>
+        <div class="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0">
+            <!-- Plano Mensal -->
+            <div class="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
+                <h3 class="mb-4 text-2xl font-semibold">Plano Mensal</h3>
+                <div class="flex justify-center items-baseline my-8">
+                    <span class="mr-2 text-5xl font-extrabold">R$15</span>
+                    <span class="text-gray-500 dark:text-gray-400">/mês</span>
+                </div>
+                <ul role="list" class="mb-8 space-y-4 text-left">
+                    <li class="flex items-center space-x-3">
+                        <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        <span>Acesso completo ao sistema</span>
+                    </li>
+                    <li class="flex items-center space-x-3">
+                        <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        <span>Suporte prioritário</span>
+                    </li>
+                </ul>
+                <a href="{% url 'register' %}?plano=mensal" class="text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:ring-primary-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-primary-900">Assinar Agora</a>
+            </div>
+
+            <!-- Plano Semestral -->
+            <div class="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
+                <h3 class="mb-4 text-2xl font-semibold">Plano Semestral</h3>
+                <div class="flex justify-center items-baseline my-8">
+                    <span class="mr-2 text-5xl font-extrabold">R$75</span>
+                    <span class="text-gray-500 dark:text-gray-400">/6 meses</span>
+                </div>
+                <ul role="list" class="mb-8 space-y-4 text-left">
+                    <li class="flex items-center space-x-3">
+                        <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        <span>Todos benefícios do plano mensal</span>
+                    </li>
+                    <li class="flex items-center space-x-3">
+                        <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        <span>Economia em relação ao plano mensal</span>
+                    </li>
+                </ul>
+                <a href="{% url 'register' %}?plano=semestral" class="text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:ring-primary-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-primary-900">Assinar Agora</a>
+            </div>
+
+            <!-- Plano Anual -->
+            <div class="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
+                <h3 class="mb-4 text-2xl font-semibold">Plano Anual</h3>
+                <div class="flex justify-center items-baseline my-8">
+                    <span class="mr-2 text-5xl font-extrabold">R$140</span>
+                    <span class="text-gray-500 dark:text-gray-400">/ano</span>
+                </div>
+                <ul role="list" class="mb-8 space-y-4 text-left">
+                    <li class="flex items-center space-x-3">
+                        <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        <span>Todos benefícios do semestral</span>
+                    </li>
+                    <li class="flex items-center space-x-3">
+                        <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        <span>Melhor custo-benefício</span>
+                    </li>
+                </ul>
+                <a href="{% url 'register' %}?plano=anual" class="text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:ring-primary-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-primary-900">Assinar Agora</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

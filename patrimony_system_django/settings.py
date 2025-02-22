@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'compressor',
-    'category'
+    'category',
+    "user_auth",
+    "subscription"
 ]
 
 MIDDLEWARE = [
