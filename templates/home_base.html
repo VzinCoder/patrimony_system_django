@@ -46,11 +46,14 @@
     {% endblock %}
 </div>
 
+{% block 'scripts-web' %}
+{% endblock  %}
 {% compress js %}
       <script src="{% static "vendor/js/flowbite.min.js" %}"></script>
       <script src="{% static "js/main.js" %}"></script>
       {% block 'scripts' %}
       {% endblock  %}
 {% endcompress %}
+
 </body>
 </html>

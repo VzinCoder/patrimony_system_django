@@ -11,7 +11,23 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import environ
 
+# Initialise environment variables
+env = environ.Env()
+environ.Env.read_env()
+
+#Stripe
+STRIPE_PUBLISHABLE_KEY = env('STRIPE_PUBLISHABLE_KEY')
+STRIPE_SECRET_KEY = env('STRIPE_SECRET_KEY')
+STRIPE_WEBHOOK_KEY = env('STRIPE_WEBHOOK_KEY')
+STRIPE_PRICES = {
+    "monthly": env("STRIPE_MONTHLY_ID"),
+    "semiannual": env("STRIPE_SEMESTRAL_ID"),
+    "annual": env("STRIPE_ANNUAL_ID"),
+}
+
+STRIPE_PRICES_TO_PLAN = {value: key for key, value in STRIPE_PRICES.items()}
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -122,6 +138,11 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",  # Adiciona seu diretório 'static' localizado na raiz do projeto
+]
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
@@ -130,8 +151,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Django compressor
 
-COMPRESS_ROOT = BASE_DIR / 'static'
+COMPRESS_ROOT = BASE_DIR /'static'
 
-COMPRESS_ENABLED = True
+COMPRESS_ENABLED = False
 
 STATICFILES_FINDERS = ('compressor.finders.CompressorFinder',)

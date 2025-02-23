@@ -60,3 +60,8 @@ class Subscription(models.Model):
         elif self.plan == 'annual':
             self.end_date = now + timedelta(days=365)
         self.save()
+    
+    def cancel(self):
+        """Cancela a assinatura."""
+        self.is_active = False
+        self.save()

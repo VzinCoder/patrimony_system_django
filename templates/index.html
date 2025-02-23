@@ -1,6 +1,7 @@
 {% extends "home_base.html" %}
 
 {% block 'content' %}
+
 <!-- Hero Section -->
 <section class="bg-white dark:bg-gray-900">
     <div class="py-8 px-4  mx-auto max-w-screen-xl text-center lg:py-40 lg:px-12">
@@ -142,7 +143,7 @@
                         <span>Suporte prioritário</span>
                     </li>
                 </ul>
-                <a href="{% url 'register' %}?plano=mensal" class="text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:ring-primary-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-primary-900">Assinar Agora</a>
+                <button onclick="checkout('{{ plans.monthly }}')" class="text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:ring-primary-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-primary-900 cursor-pointer">Assinar Agora</button>
             </div>
 
             <!-- Plano Semestral -->
@@ -162,7 +163,7 @@
                         <span>Economia em relação ao plano mensal</span>
                     </li>
                 </ul>
-                <a href="{% url 'register' %}?plano=semestral" class="text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:ring-primary-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-primary-900">Assinar Agora</a>
+                <button data-js="btnBuy" onclick="checkout('{{ plans.semiannual }}')" class="text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:ring-primary-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-primary-900 cursor-pointer">Assinar Agora</button>
             </div>
 
             <!-- Plano Anual -->
@@ -182,10 +183,85 @@
                         <span>Melhor custo-benefício</span>
                     </li>
                 </ul>
-                <a href="{% url 'register' %}?plano=anual" class="text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:ring-primary-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-primary-900">Assinar Agora</a>
+                <button  data-js="btnBuy" onclick="checkout('{{ plans.annual }}')" class="text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:ring-primary-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-primary-900 cursor-pointer">Assinar Agora</button>
             </div>
         </div>
     </div>
 </section>
 
+<!-- Modal de Erro -->
+<div id="errorModal" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center hidden">
+    <div class="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full">
+        <h2 class="text-xl font-semibold text-red-600">Erro no Checkout</h2>
+        <p class="text-gray-500">Ocorreu um erro ao processar seu pagamento. Por favor, tente novamente mais tarde.</p>
+        <button data-js="btnBuy" onclick="closeErrorModal()" class="mt-4 px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600">Fechar</button>
+    </div>
+</div>
+
+<!-- Loader de Carregamento -->
+<div id="loadingSpinner" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center hidden">
+    <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500 border-solid"></div>
+</div>
 {% endblock %}
+
+{% block 'scripts-web' %}
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+    function showErrorModal() {
+        document.getElementById('errorModal').classList.remove('hidden');
+    }
+
+    // Fecha o modal de erro
+    function closeErrorModal() {
+        document.getElementById('errorModal').classList.add('hidden');
+    }
+
+    // Exibe o loader
+    function showLoader() {
+        document.getElementById('loadingSpinner').classList.remove('hidden');
+    }
+
+    // Oculta o loader
+    function hideLoader() {
+        document.getElementById('loadingSpinner').classList.add('hidden');
+    }
+    const stripe = Stripe("{{key}}")
+
+    function checkout(priceId) {
+        showLoader();
+        fetch("{% url 'checkout' %}", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: "price_id=" + priceId,
+        })
+        .then(async (response) => {
+            if (response.status === 401) {
+                window.location.href = "{% url 'login' %}"; // Redireciona para a página de login
+                hideLoader();
+                return null; // Interrompe o processamento após o redirecionamento
+            }
+        
+            return response.json(); // Prossegue para extrair os dados da resposta
+        })
+        .then(data => {
+            if (!data) {
+                return; // Se não houver dados, não faz nada
+            }
+            if(data.error){
+                document.getElementById('errorModal').querySelector('p').textContent = data.error
+                hideLoader();
+                showErrorModal();
+                return
+            }
+            stripe.redirectToCheckout({ sessionId: data.sessionId }); // Redireciona para o checkout
+            hideLoader();
+        })
+        .catch(error => {
+            hideLoader();
+            showErrorModal();
+        });
+    }
+</script>
+{% endblock %}
+
+
