@@ -7,7 +7,7 @@
     <div class="mx-auto max-w-screen-xl px-4 lg:px-12">
         <!-- Start coding here -->
          
-        <h2 class="text-4xl lg:text-6xl font-semibold text-gray-900 dark:text-white mb-10">Categorias</h2>
+        <h2 class="text-4xl lg:text-6xl font-semibold text-gray-900 dark:text-white mb-10">Departamentos</h2>
         
         <!-- messages  -->
         {% if messages %}
@@ -22,7 +22,7 @@
             {% endfor %}
         {% endif %}
 
-                <table id="categories-table" class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                <table id="department-table" class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                     <thead >
                         <tr >
                             <th class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -47,20 +47,20 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% for  category  in categories  %}
-                        <tr class="border-b dark:border-gray-700" id="rowCategory{{category.id}}" data-category-id="{{category.id}}" data-category-name="{{category.name}}" data-category-description="{{category.description}}">
-                            <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{category.name}}</th>
-                            <td class="px-4 py-3 max-w-[12rem] truncate">{{category.description}}</td>
+                        {% for  department  in departments  %}
+                        <tr class="border-b dark:border-gray-700" id="rowDepartment{{department.id}}" data-department-id="{{department.id}}" data-department-name="{{department.name}}" data-department-description="{{department.description}}">
+                            <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{department.name}}</th>
+                            <td class="px-4 py-3 max-w-[12rem] truncate">{{department.description}}</td>
                             <td class="px-4 py-3 flex items-center justify-end">
-                                <button id="{{category.id}}-button" data-dropdown-toggle="{{category.id}}-dropdown" class="inline-flex items-center text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-700 p-1.5 dark:hover-bg-gray-800 text-center text-gray-500 hover:text-gray-800 rounded-lg focus:outline-none dark:text-gray-400 dark:hover:text-gray-100" type="button">
+                                <button id="{{department.id}}-button" data-dropdown-toggle="{{department.id}}-dropdown" class="inline-flex items-center text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-700 p-1.5 dark:hover-bg-gray-800 text-center text-gray-500 hover:text-gray-800 rounded-lg focus:outline-none dark:text-gray-400 dark:hover:text-gray-100" type="button">
                                     <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
                                     </svg>
                                 </button>
-                                <div id="{{category.id}}-dropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
+                                <div id="{{department.id}}-dropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
                                     <ul class="py-1 text-sm" aria-labelledby="apple-imac-27-dropdown-button">
                                         <li>
-                                            <button type="button" onClick="handleClickBtnUpdateCategory(this)" data-category-row-target="rowCategory{{category.id}}" data-modal-target="updateProductModal" data-modal-toggle="updateProductModal" class="flex w-full items-center py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white text-gray-700 dark:text-gray-200">
+                                            <button type="button" onClick="handleClickBtnUpdateDepartment(this)" data-department-row-target="rowDepartment{{department.id}}" data-modal-target="updateDepartmentModal" data-modal-toggle="updateDepartmentModal" class="flex w-full items-center py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white text-gray-700 dark:text-gray-200">
                                                 <svg class="w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                                     <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
                                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" />
@@ -69,7 +69,7 @@
                                             </button>
                                         </li>
                                         <li>
-                                            <button onClick="handleClickBtnPreviewCategory(this)" type="button" data-category-row-target="rowCategory{{category.id}}" data-modal-target="readCategoryModal" data-modal-toggle="readCategoryModal" class="flex w-full items-center py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white text-gray-700 dark:text-gray-200">
+                                            <button onClick="handleClickBtnPreviewDepartment(this)" type="button" data-department-row-target="rowDepartment{{department.id}}" data-modal-target="readDepartmentModal" data-modal-toggle="readDepartmentModal" class="flex w-full items-center py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white text-gray-700 dark:text-gray-200">
                                                 <svg class="w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                                     <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
                                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" />
@@ -78,7 +78,7 @@
                                             </button>
                                         </li>
                                         <li>
-                                            <button onClick="handleClickBtnDeleteOpenModal(this)" type="button" data-category-row-target="rowCategory{{category.id}}" data-url-delete="{% url "delete_category" category.id %}" data-modal-target="deleteModal" data-modal-toggle="deleteModal" class="flex w-full items-center py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 text-red-500 dark:hover:text-red-400">
+                                            <button onClick="handleClickBtnDeleteOpenModal(this)" type="button" data-department-row-target="rowDepartment{{department.id}}" data-url-delete="{% url "delete_department" department.id %}" data-modal-target="deleteModal" data-modal-toggle="deleteModal" class="flex w-full items-center py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 text-red-500 dark:hover:text-red-400">
                                                 <svg class="w-4 h-4 mr-2" viewbox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                                     <path fill-rule="evenodd" clip-rule="evenodd" fill="currentColor" d="M6.09922 0.300781C5.93212 0.30087 5.76835 0.347476 5.62625 0.435378C5.48414 0.523281 5.36931 0.649009 5.29462 0.798481L4.64302 2.10078H1.59922C1.36052 2.10078 1.13161 2.1956 0.962823 2.36439C0.79404 2.53317 0.699219 2.76209 0.699219 3.00078C0.699219 3.23948 0.79404 3.46839 0.962823 3.63718C1.13161 3.80596 1.36052 3.90078 1.59922 3.90078V12.9008C1.59922 13.3782 1.78886 13.836 2.12643 14.1736C2.46399 14.5111 2.92183 14.7008 3.39922 14.7008H10.5992C11.0766 14.7008 11.5344 14.5111 11.872 14.1736C12.2096 13.836 12.3992 13.3782 12.3992 12.9008V3.90078C12.6379 3.90078 12.8668 3.80596 13.0356 3.63718C13.2044 3.46839 13.2992 3.23948 13.2992 3.00078C13.2992 2.76209 13.2044 2.53317 13.0356 2.36439C12.8668 2.1956 12.6379 2.10078 12.3992 2.10078H9.35542L8.70382 0.798481C8.62913 0.649009 8.5143 0.523281 8.37219 0.435378C8.23009 0.347476 8.06631 0.30087 7.89922 0.300781H6.09922ZM4.29922 5.70078C4.29922 5.46209 4.39404 5.23317 4.56282 5.06439C4.73161 4.8956 4.96052 4.80078 5.19922 4.80078C5.43791 4.80078 5.66683 4.8956 5.83561 5.06439C6.0044 5.23317 6.09922 5.46209 6.09922 5.70078V11.1008C6.09922 11.3395 6.0044 11.5684 5.83561 11.7372C5.66683 11.906 5.43791 12.0008 5.19922 12.0008C4.96052 12.0008 4.73161 11.906 4.56282 11.7372C4.39404 11.5684 4.29922 11.3395 4.29922 11.1008V5.70078ZM8.79922 4.80078C8.56052 4.80078 8.33161 4.8956 8.16282 5.06439C7.99404 5.23317 7.89922 5.46209 7.89922 5.70078V11.1008C7.89922 11.3395 7.99404 11.5684 8.16282 11.7372C8.33161 11.906 8.56052 12.0008 8.79922 12.0008C9.03791 12.0008 9.26683 11.906 9.43561 11.7372C9.6044 11.5684 9.69922 11.3395 9.69922 11.1008V5.70078C9.69922 5.46209 9.6044 5.23317 9.43561 5.06439C9.26683 4.8956 9.03791 4.80078 8.79922 4.80078Z" />
                                                 </svg>
@@ -97,18 +97,18 @@
 <!-- End block -->
 
 <!-- Create modal -->
- <input id="isErrorCreateCategory" type="hidden" 
+ <input id="isErrorCreateDepartment" type="hidden" 
     value='{% if form_create.name.errors %}true{% else %}false{% endif %}'
     >
 
-<div id="createCategoryModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+<div id="createDepartmentModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative p-4 w-full max-w-2xl max-h-full">
         <!-- Modal content -->
         <div class="relative p-4 bg-white rounded-lg shadow dark:bg-gray-800 sm:p-5">
             <!-- Modal header -->
             <div class="flex justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5 dark:border-gray-600">
-                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Adicionar Categoria</h3>
-                <button id="closeCreateCategoryModal"type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-target="createCategoryModal" data-modal-toggle="createCategoryModal">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Adicionar Departamento</h3>
+                <button id="closeCreateDepartmentModal"type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-target="createDepartmentModal" data-modal-toggle="createDepartmentModal">
                     <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
                     </svg>
@@ -116,17 +116,17 @@
                 </button>
             </div>
             <!-- Modal body -->
-            <form action="{% url "categories" %}" method="POST">
+            <form action="{% url "departments" %}" method="POST">
                 {% csrf_token %}
                 <div class="grid gap-4 mb-4 sm:grid-cols-2">
                     <div class="sm:col-span-2">
                         <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nome</label>
-                        <input type="text" maxlength="100" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Nome da categoria" required="true"
+                        <input type="text" maxlength="100" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Nome do departamento" required="true"
                             value='{% if form_create %}{{form_create.name.value}}{% endif %}'
                         >
                     </div>    
                     {% if form_create.name.errors  %}
-                        <div id="errorsInputNameCreateCategoryModal" class="sm:col-span-2 flex mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                        <div id="errorsInputNameCreateDepartmentModal" class="sm:col-span-2 flex mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
                             <svg class="shrink-0 inline w-4 h-4 me-3 mt-[2px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
                             </svg>
@@ -145,32 +145,32 @@
                         <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                             Descrição
                         </label>
-                        <textarea id="description" name="description" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Escreva a descrição da categoria aqui">{% if form_create %}{{form_create.description.value}}{% endif %}</textarea>
+                        <textarea id="description" name="description" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Escreva a descrição do departamento aqui">{% if form_create %}{{form_create.description.value}}{% endif %}</textarea>
                     </div>
                 </div>
                 <button type="submit" class="text-white inline-flex items-center bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                     <svg class="mr-1 -ml-1 w-6 h-6" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
                     </svg>
-                    Adicionar nova categoria
+                    Adicionar novo departamento
                 </button>
             </form>
         </div>
     </div>
 </div>
 <!-- Update modal -->
-<input id="isErrorUpdateCategory" type="hidden" 
+<input id="isErrorUpdateDepartment" type="hidden" 
 value='{% if form_update.name.errors %}true{% else %}false{% endif %}'
 >
 
-<div id="updateProductModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+<div id="updateDepartmentModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative p-4 w-full max-w-2xl max-h-full">
         <!-- Modal content -->
         <div class="relative p-4 bg-white rounded-lg shadow dark:bg-gray-800 sm:p-5">
             <!-- Modal header -->
             <div class="flex justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5 dark:border-gray-600">
-                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Atualizar Categoria</h3>
-                <button id="updateCategoryButton" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="updateProductModal">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Atualizar Departamento</h3>
+                <button id="updateDepartmentButton" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="updateDepartmentModal">
                     <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
                     </svg>
@@ -178,7 +178,7 @@ value='{% if form_update.name.errors %}true{% else %}false{% endif %}'
                 </button>
             </div>
             <!-- Modal body -->
-            <form action="{% url "categories" %}" method="POST">
+            <form action="{% url "departments" %}" method="POST">
                 {% csrf_token %}
                 <input type="hidden" name="id" value='{% if form_update %}{{form_update.instance.id}}{% endif %}'>
                 <div class="grid gap-4 mb-4 sm:grid-cols-2">
@@ -186,11 +186,11 @@ value='{% if form_update.name.errors %}true{% else %}false{% endif %}'
                         <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nome</label>
                         <input
                         value='{% if form_update %}{{form_update.name.value}}{% endif %}'
-                        type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Nome da categoria">
+                        type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Nome do departamento">
                     </div>
 
                     {% if form_update.name.errors  %}
-                        <div id="errorsInputNameUpdateCategoryModal" class="sm:col-span-2 flex mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                        <div id="errorsInputNameUpdateDepartmentModal" class="sm:col-span-2 flex mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
                             <svg class="shrink-0 inline w-4 h-4 me-3 mt-[2px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
                             </svg>
@@ -221,7 +221,7 @@ value='{% if form_update.name.errors %}true{% else %}false{% endif %}'
     </div>
 </div>
 <!-- Read modal -->
-<div id="readCategoryModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+<div id="readDepartmentModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative p-4 w-full max-w-xl max-h-full">
         <!-- Modal content -->
         <div class="relative p-4 bg-white rounded-lg shadow dark:bg-gray-800 sm:p-5">
@@ -229,10 +229,10 @@ value='{% if form_update.name.errors %}true{% else %}false{% endif %}'
             <div class="flex justify-between mb-4 rounded-t sm:mb-5">
                 <div class="text-lg text-gray-900 md:text-xl dark:text-white">
                     <h3 class="font-semibold ">Nome</h3>
-                    <p  class="font-light text-gray-500  dark:text-gray-400" data-js="nameCategory" > default Name</p>
+                    <p  class="font-light text-gray-500  dark:text-gray-400" data-js="nameDepartment" > default Name</p>
                 </div>
                 <div>
-                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 inline-flex dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="readCategoryModal">
+                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 inline-flex dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="readDepartmentModal">
                         <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
                         </svg>
@@ -244,7 +244,7 @@ value='{% if form_update.name.errors %}true{% else %}false{% endif %}'
                 <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white">
                     Descrição
                 </dt>
-                <dd data-js="descriptionCategory" class="break-words mb-4 font-light text-gray-500 sm:mb-5 dark:text-gray-400">
+                <dd data-js="descriptionDepartment" class="break-words mb-4 font-light text-gray-500 sm:mb-5 dark:text-gray-400">
                     default description...
                 </dd>
             </dl>
@@ -284,7 +284,7 @@ value='{% if form_update.name.errors %}true{% else %}false{% endif %}'
 <script src="{% static "vendor/js/simple-datatables/umd/simple-datatables.js" %}"></script>
 <script>
     const activeDatatableCategories = () => {
-        const tableCategories = document.getElementById("categories-table")
+        const tableCategories = document.getElementById("department-table")
         const existsDatatable = typeof simpleDatatables.DataTable !== 'undefined'
         const options = {
             searchable: true,
@@ -293,9 +293,9 @@ value='{% if form_update.name.errors %}true{% else %}false{% endif %}'
             perPageSelect: false,
             labels:{
                 placeholder: "Buscar...",
-                perPage: "Categorias por página",
-                noRows: "Nenhuma categoria encontrada",
-                info: "Mostrando {start} a {end} de {rows} categorias",
+                perPage: "Departamentos por página",
+                noRows: "Nenhum departamento encontrado",
+                info: "Mostrando {start} a {end} de {rows} departamentos",
                 noResults: "Nenhum resultado encontrado para busca"
             },
             template: (options, dom) => "<div class='" + options.classes.top + "'>" +
@@ -308,9 +308,9 @@ value='{% if form_update.name.errors %}true{% else %}false{% endif %}'
                         "</div>" : ""
                     ) +
                     // Botão de "Adicionar" com estilo Flowbite
-                    `<button id="createCategoryButton" data-modal-toggle="createCategoryModal" type="button" class="flex  border  font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">
+                    `<button id="createDepartmentButton" data-modal-toggle="createDepartmentModal" type="button" class="flex  border  font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">
                         <svg class="me-1 -ms-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"></path></svg>
-                    Adicionar Categoria
+                    Adicionar Departamento
                     </button>` +
                 "</div>" +
                 (options.searchable ?
@@ -328,7 +328,7 @@ value='{% if form_update.name.errors %}true{% else %}false{% endif %}'
             "</div>"
         }
         if (tableCategories && existsDatatable) {
-            const dataTable = new simpleDatatables.DataTable("#categories-table",options);
+            const dataTable = new simpleDatatables.DataTable("#department-table",options);
             dataTable.on('datatable.update',() => {
                 initFlowbite();
             })
@@ -337,53 +337,55 @@ value='{% if form_update.name.errors %}true{% else %}false{% endif %}'
 
     const handleErrorModal = () => {
         setTimeout(() => {
-            const isErrorCreate = document.getElementById("isErrorCreateCategory")?.value === "true"
-            const isErrorUpdate = document.getElementById("isErrorUpdateCategory")?.value === "true"
+            const isErrorCreate = document.getElementById("isErrorCreateDepartment")?.value === "true"
+            const isErrorUpdate = document.getElementById("isErrorUpdateDepartment")?.value === "true"
             if (isErrorCreate) {
-                return document.getElementById("createCategoryButton").click()
+                return document.getElementById("createDepartmentButton").click()
             }
 
             if(isErrorUpdate){
-                return document.getElementById("updateCategoryButton").click()
+                return document.getElementById("updateDepartmentButton").click()
             }
         },1)
     }
 
-    const handleClickBtnDeleteOpenModal = ({dataset:{categoryRowTarget,urlDelete}}) => {
-        const {name} = getDataRowCategory(categoryRowTarget)
+    const handleClickBtnDeleteOpenModal = ({dataset:{departmentRowTarget,urlDelete}}) => {
+        const {name} = getDataRowDepartment(departmentRowTarget)
         const modalDelete = document.getElementById("deleteModal")
         const p = modalDelete.querySelector('[data-js="alert-msg-delete"]')
         const form = modalDelete.querySelector("form")
-        p.textContent = `Tem certeza de que deseja excluir a categoria com o nome "${name}" ?`
+        p.textContent = `Tem certeza de que deseja excluir o departamento com o nome "${name}" ?`
         form.action = urlDelete
+        debugger
     }
 
-    const getDataRowCategory = (id) => {
-        const rowCategory = document.getElementById(id)
-        const  {categoryId,categoryName,categoryDescription} = rowCategory.dataset
-        return {id:categoryId,name:categoryName,description:categoryDescription}
+    const getDataRowDepartment = (id) => {
+        const rowDepartment = document.getElementById(id)
+        const  {departmentId,departmentName,departmentDescription} = rowDepartment.dataset
+        return {id:departmentId,name:departmentName,description:departmentDescription}
     }
 
-    const handleClickBtnPreviewCategory = ({dataset:{categoryRowTarget}})=> {
-        const {name,description} = getDataRowCategory(categoryRowTarget)
-        const readModal = document.getElementById('readCategoryModal')
-        const elementName = document.querySelector('[data-js="nameCategory"]')
-        const elementDescription = document.querySelector('[data-js="descriptionCategory"]')
+    const handleClickBtnPreviewDepartment = ({dataset:{departmentRowTarget}})=> {
+        const {name,description} = getDataRowDepartment(departmentRowTarget)
+        const readModal = document.getElementById('readDepartmentModal')
+        const elementName = document.querySelector('[data-js="nameDepartment"]')
+        const elementDescription = document.querySelector('[data-js="descriptionDepartment"]')
         elementName.textContent = name
         elementDescription.textContent = description
+        debugger
     }
 
     const removeErrorsUpdateModal = () => {
-        const errorsUpdate = document.getElementById("errorsInputNameUpdateCategoryModal")
+        const errorsUpdate = document.getElementById("errorsInputNameUpdateDepartmentModal")
         if(errorsUpdate){
             errorsUpdate.remove()
         }
     }
 
-    const handleClickBtnUpdateCategory = ({dataset:{categoryRowTarget}})=> {
+    const handleClickBtnUpdateDepartment = ({dataset:{departmentRowTarget}})=> {
         removeErrorsUpdateModal()
-        const {name,description,id} = getDataRowCategory(categoryRowTarget)
-        const readModal = document.getElementById('updateProductModal')
+        const {name,description,id} = getDataRowDepartment(departmentRowTarget)
+        const readModal = document.getElementById('updateDepartmentModal')
         const form = readModal.querySelector('form')
         const inputName = form.name
         const inputDescription = form.description

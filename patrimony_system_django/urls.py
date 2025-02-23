@@ -23,5 +23,6 @@ urlpatterns = [
     path('category/',include('category.urls')),
     path('auth/',include('user_auth.urls')),
     path('subscription/',include('subscription.urls')),
+    path('department/',include('department.urls')),
     path("",get_home,name="home")
 ]

@@ -56,7 +56,8 @@ INSTALLED_APPS = [
     'compressor',
     'category',
     "user_auth",
-    "subscription"
+    "subscription",
+    "department"
 ]
 
 MIDDLEWARE = [
