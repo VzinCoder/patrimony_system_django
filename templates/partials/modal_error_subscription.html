@@ -1,0 +1,13 @@
+<!-- Modal de Erro -->
+<div id="errorModal" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center hidden">
+    <div class="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full">
+        <h2 class="text-xl font-semibold text-red-600">Erro no Checkout</h2>
+        <p class="text-gray-500">Ocorreu um erro ao processar seu pagamento. Por favor, tente novamente mais tarde.</p>
+        <button data-js="btnBuy" onclick="closeErrorModal()" class="mt-4 px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600">Fechar</button>
+    </div>
+</div>
+
+<!-- Loader de Carregamento -->
+<div id="loadingSpinner" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center hidden">
+    <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500 border-solid"></div>
+</div>

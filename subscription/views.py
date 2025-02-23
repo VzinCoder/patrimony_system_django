@@ -7,6 +7,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.conf import settings
 from .models import Subscription
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
@@ -23,7 +24,8 @@ def create_checkout_session(request):
 
         active_subscriptions = Subscription.objects.filter(
             user=user,
-            is_active=True
+            is_active=True,
+            end_date__gt=timezone.now()
         ).exclude(plan='trial')
 
         if active_subscriptions.exists():
@@ -82,8 +84,21 @@ def stripe_webhook(request):
             plan = plan
             )
         subscription.set_duration()
+    elif event["type"] == "customer.subscription.updated":
+       stripe_subscription = stripe.Subscription.retrieve(event['data']['object']['id'])
+       try:
+            subscription = Subscription.objects.get(stripe_subscription_id=stripe_subscription.id)
+            subscription.set_duration()
+       except Subscription.DoesNotExist:
+            return HttpResponse(status=404)
+    elif event["type"] == "customer.subscription.deleted":
+        stripe_subscription = stripe.Subscription.retrieve(event['data']['object']['id'])
+        try:
+            subscription = Subscription.objects.get(stripe_subscription_id=stripe_subscription.id)
+            subscription.cancel()
+        except Subscription.DoesNotExist:
+            return HttpResponse(status=404)
         
-
     return HttpResponse(status=200)
 
 def get_page_subscriptions(request):
