@@ -57,7 +57,8 @@ INSTALLED_APPS = [
     'category',
     "user_auth",
     "subscription",
-    "department"
+    "department",
+    "supplier"
 ]
 
 MIDDLEWARE = [

@@ -283,8 +283,8 @@ value='{% if form_update.name.errors %}true{% else %}false{% endif %}'
 {% block 'scripts' %}
 <script src="{% static "vendor/js/simple-datatables/umd/simple-datatables.js" %}"></script>
 <script>
-    const activeDatatableCategories = () => {
-        const tableCategories = document.getElementById("department-table")
+    const activeDatatableDepartments = () => {
+        const tableDepartments = document.getElementById("department-table")
         const existsDatatable = typeof simpleDatatables.DataTable !== 'undefined'
         const options = {
             searchable: true,
@@ -327,7 +327,7 @@ value='{% if form_update.name.errors %}true{% else %}false{% endif %}'
                 "<nav class='" + options.classes.pagination + "'></nav>" +
             "</div>"
         }
-        if (tableCategories && existsDatatable) {
+        if (tableDepartments && existsDatatable) {
             const dataTable = new simpleDatatables.DataTable("#department-table",options);
             dataTable.on('datatable.update',() => {
                 initFlowbite();
@@ -372,7 +372,6 @@ value='{% if form_update.name.errors %}true{% else %}false{% endif %}'
         const elementDescription = document.querySelector('[data-js="descriptionDepartment"]')
         elementName.textContent = name
         elementDescription.textContent = description
-        debugger
     }
 
     const removeErrorsUpdateModal = () => {
@@ -396,7 +395,7 @@ value='{% if form_update.name.errors %}true{% else %}false{% endif %}'
     }
 
     document.addEventListener("DOMContentLoaded", () => {
-        activeDatatableCategories()
+        activeDatatableDepartments()
         handleErrorModal()
     });
 </script>
