@@ -16,7 +16,9 @@ class SubscriptionMiddleware:
             reverse('register'),
             reverse('subscriptions'),
             reverse('checkout'),
-            reverse("webhook")
+            reverse("webhook"),
+            reverse("payment_sucess"),
+            reverse("payment_error")
             # '/success/',
             # '/cancel/',
         ]

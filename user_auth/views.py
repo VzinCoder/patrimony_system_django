@@ -22,7 +22,7 @@ def login(request):
           return render(request,"login.html",{'form':form})
        user = form.get_user()
        auth_login(request,user)
-       return redirect('categories')
+       return redirect('dashboard')
 
    return render(request,"login.html")
 

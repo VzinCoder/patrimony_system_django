@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+{% load static %}
+{% block 'content' %}
+<section class="p-3 sm:p-5 antialiased">
+    <div class="mx-auto max-w-screen-xl px-4 lg:px-12">
+        <!-- Métricas -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+            <!-- Total de Ativos -->
+            <div class="p-6 bg-white rounded-lg shadow dark:bg-gray-800">
+                <div class="flex items-center">
+                    <div class="inline-flex flex-shrink-0 items-center justify-center h-12 w-12 text-blue-600 bg-blue-100 rounded-lg dark:bg-blue-900 dark:text-blue-200">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/>
+                        </svg>
+                    </div>
+                    <div class="ml-4">
+                        <h3 class="text-gray-500 dark:text-gray-400 text-sm font-medium">Total de Ativos</h3>
+                        <p class="text-2xl font-bold text-gray-900 dark:text-white">{{ total_assets }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Em Manutenção -->
+            <div class="p-6 bg-white rounded-lg shadow dark:bg-gray-800">
+                <div class="flex items-center">
+                    <div class="inline-flex flex-shrink-0 items-center justify-center h-12 w-12 text-yellow-600 bg-yellow-100 rounded-lg dark:bg-yellow-900 dark:text-yellow-200">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <div class="ml-4">
+                        <h3 class="text-gray-500 dark:text-gray-400 text-sm font-medium">Em Manutenção</h3>
+                        <p class="text-2xl font-bold text-gray-900 dark:text-white">{{ em_manutencao }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Próximos da Revisão -->
+            <div class="p-6 bg-white rounded-lg shadow dark:bg-gray-800">
+                <div class="flex items-center">
+                    <div class="inline-flex flex-shrink-0 items-center justify-center h-12 w-12 text-purple-600 bg-purple-100 rounded-lg dark:bg-purple-900 dark:text-purple-200">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <div class="ml-4">
+                        <h3 class="text-gray-500 dark:text-gray-400 text-sm font-medium">Próximos da Revisão</h3>
+                        <p class="text-2xl font-bold text-gray-900 dark:text-white">{{ proximos_revisao }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Movimentações Recentes -->
+            <div class="p-6 bg-white rounded-lg shadow dark:bg-gray-800">
+                <div class="flex items-center">
+                    <div class="inline-flex flex-shrink-0 items-center justify-center h-12 w-12 text-green-600 bg-green-100 rounded-lg dark:bg-green-900 dark:text-green-200">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <div class="ml-4">
+                        <h3 class="text-gray-500 dark:text-gray-400 text-sm font-medium">Movimentações (30 dias)</h3>
+                        <p class="text-2xl font-bold text-gray-900 dark:text-white">{{ total_movimentacoes }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gráfico de Distribuição -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div class="p-6 bg-white rounded-lg shadow dark:bg-gray-800">
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Distribuição por Categoria</h3>
+                <canvas id="categoryChart"></canvas>
+            </div>
+
+            <!-- Movimentações Recentes -->
+            <div class="p-6 bg-white rounded-lg shadow dark:bg-gray-800">
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Últimas Movimentações</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <tr>
+                                <th class="px-4 py-3">Data</th>
+                                <th class="px-4 py-3">Ativo</th>
+                                <th class="px-4 py-3">Tipo</th>
+                                <th class="px-4 py-3">Local</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for movement in recent_movements %}
+                            <tr class="border-b dark:border-gray-700">
+                                <td class="px-4 py-3">{{ movement.movement_date|date:"d/m/Y H:i" }}</td>
+                                <td class="px-4 py-3 font-medium text-gray-900 dark:text-white">{{ movement.asset.name }}</td>
+                                <td class="px-4 py-3">
+                                    <span class="px-2 py-1 text-xs font-medium rounded-full 
+                                        {% if movement.type == 'entry' %}bg-green-100 text-green-800
+                                        {% elif movement.type == 'exit' %}bg-red-100 text-red-800
+                                        {% else %}bg-blue-100 text-blue-800{% endif %}">
+                                        {{ movement.get_type_display }}
+                                    </span>
+                                </td>
+                                <td class="px-4 py-3">
+                                    {% if movement.type == 'transfer' %}
+                                        {{ movement.origin }} → {{ movement.destination }}
+                                    {% else %}
+                                        {{ movement.destination|default:movement.origin }}
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block 'scripts' %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Gráfico de Categorias
+    const categoryCtx = document.getElementById('categoryChart').getContext('2d');
+    new Chart(categoryCtx, {
+        type: 'doughnut',
+        data: {
+            labels: {{ category_labels|safe }},
+            datasets: [{
+                data: {{ category_data }},
+                backgroundColor: [
+                    '#3B82F6', '#10B981', '#F59E0B', '#EF4444', '#8B5CF6',
+                    '#EC4899', '#06B6D4', '#84CC16', '#F97316', '#64748B'
+                ],
+                borderWidth: 0
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { position: 'bottom' },
+                tooltip: { enabled: true }
+            }
+        }
+    });
+</script>
+{% endblock %}

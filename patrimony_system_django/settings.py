@@ -41,9 +41,11 @@ SECRET_KEY = 'django-insecure-=a9dd3jx6)(r=!myh81*0^_5z$n(ci7i3z%cpt)j&x+(w^lt@3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
-
+CSRF_TRUSTED_ORIGINS = [
+    'https://fc9f-2804-29b8-5453-e03c-6c94-fade-cc14-9437.ngrok-free.app'
+]
 # Application definition
 
 INSTALLED_APPS = [
@@ -58,7 +60,9 @@ INSTALLED_APPS = [
     "user_auth",
     "subscription",
     "department",
-    "supplier"
+    "supplier",
+    "asset",
+    "movement"
 ]
 
 MIDDLEWARE = [

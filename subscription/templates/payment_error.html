@@ -1,0 +1,15 @@
+{% extends "home_base.html" %}
+{% block 'title' %}Erro no Pagamento{% endblock %}
+
+{% block 'content' %}
+<div class="bg-white dark:bg-gray-900 flex flex-col items-center justify-center h-full text-center">
+    <svg class="w-24 h-24 text-red-500 mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+    </svg>
+    <h1 class="text-3xl font-semibold text-gray-900 dark:text-white">Ocorreu um erro!</h1>
+    <p class="text-gray-600 dark:text-gray-400 mt-2">Não foi possível processar seu pagamento. Tente novamente.</p>
+    <a href="{% url 'subscriptions' %}" class="mt-4 px-6 py-2 text-white bg-red-600 hover:bg-red-700 rounded-lg">
+        Tentar novamente
+    </a>
+</div>
+{% endblock %}

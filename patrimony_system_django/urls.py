@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from .views import get_home
+from .views import get_home,get_dashboard
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,5 +25,7 @@ urlpatterns = [
     path('subscription/',include('subscription.urls')),
     path('department/',include('department.urls')),
     path('supplier/',include('supplier.urls')),
-    path("",get_home,name="home")
+    path('asset/',include('asset.urls')),
+    path("dashboard/",get_dashboard,name="dashboard"),
+    path("",get_home,name="home"),
 ]
