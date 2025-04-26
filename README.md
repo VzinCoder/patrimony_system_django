@@ -66,7 +66,7 @@ Antes de utilizar o sistema de assinaturas, é necessário criar os planos na su
 | Plano | Valor (BRL) | Frequência |
 | --- | --- | --- |
 | Mensal | R$15 | Todo mês |
-| Semestral | R$65 | A cada 6 meses |
+| Semestral | R$75 | A cada 6 meses |
 | Anual | R$140 | Todo ano |
 
 1. Acesse o [Painel da Stripe](https://dashboard.stripe.com/products).
